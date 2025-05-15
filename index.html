@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Crisp Lechon | Premium Roasted Pig</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #e6b422;
+            --gold-light: #f8e5c0;
+            --gold-dark: #d4a017;
+            --deep-red: #a52a2a;
+            --cream: #fff9f0;
+            --soft-brown: #8b5a2b;
+            --dark: #2c2c2c;
+            --shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--deep-red);
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('lechon-header.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            color:black
+
+         }
+        
+        .tagline {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+                        color:black;
+
+            opacity: 0.9;
+        }
+        
+        .header-badge {
+            background-color: var(--deep-red);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .header-badge:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+        
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--deep-red);
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--deep-red);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 100px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            margin: 1.5rem auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 5rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero-content {
+            padding: 4rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--deep-red);
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            color: #555;
+            max-width: 700px;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.4s, box-shadow 0.4s;
+            height: 300px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-caption h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .gallery-caption p {
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        /* Video */
+        .video-section {
+            background: linear-gradient(135deg, var(--deep-red), var(--soft-brown));
+            padding: 5rem 2rem;
+            text-align: center;
+            margin: 5rem 0;
+            border-radius: 12px;
+            color: white;
+        }
+        
+        .video-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .video-section p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-container:before {
+            content: '';
+            display: block;
+            padding-top: 56.25%;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Pricing */
+        .pricing-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 4rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .per-kilo {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 1rem auto 2rem;
+            box-shadow: 0 4px 15px rgba(230, 180, 34, 0.3);
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .price-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .price-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            border-top: 5px solid var(--gold);
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .price-card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .price {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--deep-red);
+            margin: 1.5rem 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .price small {
+            font-size: 1rem;
+            color: #777;
+            font-weight: normal;
+        }
+        
+        .price-card p {
+            color: #555;
+            margin-top: 1rem;
+        }
+        
+        /* Notice */
+        .notice {
+            background-color: var(--gold-light);
+            border-left: 5px solid var(--gold);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .notice h3 {
+            margin-bottom: 1rem;
+            color: var(--soft-brown);
+        }
+        
+        .notice p {
+            margin-bottom: 0.5rem;
+            color: #5a4a3a;
+        }
+        
+        .notice strong {
+            color: var(--deep-red);
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--deep-red), var(--soft-brown));
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            border-radius: 12px;
+            margin: 5rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 1rem;
+            color: var(--deep-red);
+        }
+        
+        .contact-card p {
+            color: #555;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+        
+        .footer-tagline {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 2.5rem 0;
+        }
+        
+        .social-links li {
+            margin: 0 1.2rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(230, 180, 34, 0.3);
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 180, 34, 0.4);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--deep-red);
+            border-color: white;
+        }
+        
+        .btn-large {
+            padding: 16px 42px;
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.8rem;
+                color: rgb(2, 2, 2)!important;
+            }
+            
+            .tagline {
+                font-size: 1.3rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1.5rem;
+            }
+            
+            .nav-links li {
+                margin: 0 1rem;
+            }
+            
+            .hero-content {
+                padding: 3rem 2rem;
+            }
+            
+            .pricing-section {
+                padding: 3rem 2rem;
+            }
+        }
+        header{
+background-image: url(image.png);
+background-size: cover;
+background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Nestor's Lechon</div>
+        <p class="tagline">Slow-roasted to perfection with golden, crispy skin and succulent meat</p>
+        <div class="header-badge">Family recipe since 1985</div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Nestor's Lechon</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section id="about" class="section">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>The Perfect Celebration Centerpiece</h2>
+                    <p>Our lechon is slow-roasted over charcoal for hours, basted with our secret family recipe to achieve that perfect golden crisp skin while keeping the meat incredibly juicy and flavorful. Each pig is carefully selected and prepared to ensure the highest quality for your special occasions.</p>
+                    <p>Whether it's a wedding, birthday, fiesta, or corporate event, our lechon will be the star of your celebration that guests will remember and talk about for years to come.</p>
+                    <a href="#pricing" class="btn">View Pricing</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="gallery" class="section">
+            <h2 class="section-title">Our Lechon Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="image1.jpg" alt="Whole golden brown lechon on display">
+                    <div class="gallery-caption">
+                        <h4>Order Now!</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="image2.jpg" alt="Close-up of crispy lechon skin">
+                    <div class="gallery-caption">
+                        <h4>Order Now!</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="image3.jpg" alt="Lechon being carved">
+                    <div class="gallery-caption">
+                        <h4>Order Now!</h4>
+                    </div> </div>
+           
+
+                <div class="gallery-item">
+                    <img src="image4.jpg" alt="Lechon served at a party">
+                    <div class="gallery-caption">
+                        <h4>Order Now!</h4>
+                    </div> </div>
+
+                     <div class="gallery-item">
+                    <img src="image5.jpg" alt="Lechon served at a party">
+                    <div class="gallery-caption">
+                        <h4>Order Now!</h4>
+                    </div> </div>
+
+                     <div class="gallery-item">
+                    <img src="image6.jpg" alt="Lechon served at a party">
+                    <div class="gallery-caption">
+                        <h4>Order Now!</h4>
+                    </div> </div>
+
+                        
+                </div>
+            </div>
+            
+            <div class="video-section">
+                <h2>See Our Lechon in Action</h2>
+                <p>Watch how we prepare our famous lechon from selection to serving</p>
+                <div class="video-container">
+                    <iframe src="video-sample.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+        </section>
+        
+        <section id="pricing" class="section">
+            <h2 class="section-title">Pricing & Packages</h2>
+            
+            <div class="pricing-section">
+                <div class="per-kilo">₱1,000 per kilogram</div>
+                
+                <h3 style="text-align: center; margin-bottom: 2.5rem;">Whole Lechon Packages</h3>
+                
+                <div class="price-cards">
+                    <div class="price-card">
+                        <h3>Small</h3>
+                        <div class="price">₱10,000</div>
+                    </div>
+                    
+                    <div class="price-card">
+                        <h3>Medium</h3>
+                        <div class="price">₱11,000-₱15,000</div>
+                    </div>
+                    
+                    <div class="price-card">
+                        <h3>Large</h3>
+                        <div class="price">₱16,000-₱20,000</div>
+                    </div>
+                </div>
+                
+                <div class="notice">
+                    <h3>Order Information</h3>
+                    <p><strong>Deposit:</strong> We require a ₱2,000 deposit for whole lechon orders to secure your reservation.</p>
+                    <p><strong>Advance Notice:</strong> Please place your order 3-5 days in advance to ensure availability.</p>
+                
+                </div>
+            </div>
+        </section>
+        
+        <div class="cta-section">
+            <h2>Ready to Order Your Lechon?</h2>
+            <p>Make your event unforgettable with our famous roasted pig</p>
+            <a href="#contact" class="btn btn-outline btn-large">Contact Us Now</a>
+        </div>
+        
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact Us</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone</h3>
+                  <p>  (046) 417 30 02 </p>
+                  <p> 09171134119  </p>
+                   <p> 09596616129 </p>
+                   <p>09155977895</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>shiao_tely20@yahoo.com</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Talaba 4 Bacoor City, Cavite, Bacoor, Philippines</p>
+                    <p>Sunday: 7AM-11AM</p>
+                    
+
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-logo">Nestor's LechonNestor's Lechon</div>
+        <p class="footer-tagline">The finest roasted pig for your special occasions</p>
+        
+        <ul class="social-links">
+            <li><a href="#">📱</a></li>
+            <li><a href="#">📘</a></li>
+            <li><a href="#">📸</a></li>
+            <li><a href="#">📹</a></li>
+        </ul>
+        
+        <div class="copyright">
+            <p>© 2023 Nestor's Lechon. All rights reserved. Project R</p>
+            <p>Thank you for your patronage and God bless!</p>
+        </div>
+    </footer>
+</body>
+</html>
