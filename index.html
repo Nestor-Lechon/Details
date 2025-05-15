@@ -324,6 +324,9 @@
             box-shadow: 0 4px 15px rgba(230, 180, 34, 0.3);
             text-align: center;
             font-size: 1.2rem;
+            align-items: center;
+            justify-content: center;
+            display: flex;
         }
         
         .price-cards {
@@ -523,8 +526,23 @@
             font-size: 1.1rem;
             box-shadow: 0 5px 15px rgba(230, 180, 34, 0.3);
             text-align: center;
+           margin-left: 25vw;
         }
-        
+         .btn-1 {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(230, 180, 34, 0.3);
+            text-align: center;
+        }
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(230, 180, 34, 0.4);
@@ -711,7 +729,7 @@ background-repeat: no-repeat;
         <div class="cta-section">
             <h2>Ready to Order Your Lechon?</h2>
             <p>Make your event unforgettable with our famous roasted pig</p>
-            <a href="#contact" class="btn btn-outline btn-large">Contact Us Now</a>
+            <a href="#contact" class="btn-1">Contact Us Now</a>
         </div>
         
         <section id="contact" class="section">
