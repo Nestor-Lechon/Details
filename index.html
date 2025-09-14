@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nestor's Lechon</title>
+    <title>Nestor's Lechon - Premium Catering Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #e6b422;
-            --gold-light: #f8e5c0;
-            --gold-dark: #d4a017;
-            --deep-red: #a52a2a;
-            --cream: #fff9f0;
-            --soft-brown: #8b5a2b;
-            --dark: #2c2c2c;
-            --shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-light: #e9ecef;
+            --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -25,761 +27,640 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--cream);
-            color: var(--dark);
-            line-height: 1.7;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: var(--deep-red);
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('lechon-header.jpg') center/cover no-repeat;
-            color: white;
-            text-align: center;
-            padding: 6rem 2rem;
-            position: relative;
-        }
-        
-        .logo {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-            color:black
-
-         }
-        
-        .tagline {
-            font-size: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            font-weight: 300;
-                        color:black;
-
-            opacity: 0.9;
-        }
-        
-        .header-badge {
-            background-color: var(--deep-red);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        
-        .header-badge:hover {
-            transform: translateY(-3px);
-        }
-        
-        /* Navigation */
-        nav {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(5px);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 2rem;
-        }
-        
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--deep-red);
-            font-weight: 700;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2.5rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--deep-red);
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-white);
+            color: var(--text-primary);
+            line-height: 1.6;
         }
         
         .section {
-            margin-bottom: 5rem;
-            scroll-margin-top: 100px;
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .section-title {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .nav-dot.active {
+            background: var(--accent-color);
+            border-color: var(--bg-white);
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+        
+        .nav-dot:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Section 1 - Header/About */
+        .hero-section {
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
             text-align: center;
-            margin-bottom: 3.5rem;
-            position: relative;
         }
         
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--gold);
-            margin: 1.5rem auto 0;
-            border-radius: 2px;
+        .company-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
         
-        /* Hero Section */
-        .hero {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            margin-bottom: 5rem;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+        .company-tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-content {
-            padding: 4rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .hero h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--deep-red);
-            line-height: 1.3;
-        }
-        
-        .hero p {
+        .hero-content p {
             font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            color: #555;
-            max-width: 700px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
         }
         
-        /* Gallery */
-        .gallery {
+        /* Section 2 - Gallery */
+        .gallery-section {
+            background: var(--bg-white);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin: 4rem 0;
         }
         
         .gallery-item {
-            position: relative;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.4s, box-shadow 0.4s;
-            height: 300px;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
         
         .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
         }
         
         .gallery-item img {
             width: 100%;
-            height: 100%;
+            height: 250px;
             object-fit: cover;
-            transition: transform 0.6s;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            color: white;
-            padding: 2rem 1.5rem 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.4s;
-        }
-        
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-        
-        .gallery-caption h4 {
-            color: white;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-        
-        .gallery-caption p {
-            opacity: 0.9;
-            font-weight: 300;
-        }
-        
-        /* Video */
-        .video-section {
-            background: linear-gradient(135deg, var(--deep-red), var(--soft-brown));
-            padding: 5rem 2rem;
-            text-align: center;
-            margin: 5rem 0;
-            border-radius: 12px;
-            color: white;
-        }
-        
-        .video-section h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .video-section p {
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
-        .video-container {
-            max-width: 800px;
-            margin: 2rem auto 0;
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .video-container:before {
-            content: '';
             display: block;
-            padding-top: 56.25%;
         }
         
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+        /* Section 3 - Services */
+        .services-section {
+            background: var(--bg-light);
         }
         
-        /* Pricing */
-        .pricing-section {
-            background-color: white;
-            border-radius: 12px;
-            padding: 4rem;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .per-kilo {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: 600;
-            margin: 1rem auto 2rem;
-            box-shadow: 0 4px 15px rgba(230, 180, 34, 0.3);
-            text-align: center;
-            font-size: 1.2rem;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-        }
-        
-        .price-cards {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            gap: 2rem;
         }
         
-        .price-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s, box-shadow 0.4s;
-            border-top: 5px solid var(--gold);
-        }
-        
-        .price-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .price-card h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-        
-        .price {
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: var(--deep-red);
-            margin: 1.5rem 0;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .price small {
-            font-size: 1rem;
-            color: #777;
-            font-weight: normal;
-        }
-        
-        .price-card p {
-            color: #555;
-            margin-top: 1rem;
-        }
-        
-        /* Notice */
-        .notice {
-            background-color: var(--gold-light);
-            border-left: 5px solid var(--gold);
+        .service-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
             padding: 2rem;
-            margin: 3rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .notice h3 {
-            margin-bottom: 1rem;
-            color: var(--soft-brown);
-        }
-        
-        .notice p {
-            margin-bottom: 0.5rem;
-            color: #5a4a3a;
-        }
-        
-        .notice strong {
-            color: var(--deep-red);
-        }
-        
-        /* CTA */
-        .cta-section {
-            background: linear-gradient(135deg, var(--deep-red), var(--soft-brown));
-            color: white;
             text-align: center;
-            padding: 5rem 2rem;
-            border-radius: 12px;
-            margin: 5rem 0;
-            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
         }
         
-        .cta-section h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-        }
-        
-        .cta-section p {
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-        
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .contact-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .contact-card:hover {
+        .service-card:hover {
             transform: translateY(-5px);
         }
         
-        .contact-icon {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+        }
+        
+        /* Section 4 - Pricing */
+        .pricing-section {
+            background: var(--bg-white);
+        }
+        
+        .pricing-highlight {
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin: 0 auto 3rem;
+            display: block;
+            text-align: center;
+            max-width: 300px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .pricing-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+        
+        .info-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 0 6px 6px 0;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .info-box h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .info-box p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Section 5 - Contact */
+        .contact-section {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .contact-section .section-title {
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
         }
         
         .contact-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--deep-red);
+            color: white;
         }
         
         .contact-card p {
-            color: #555;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
         }
         
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 5rem 2rem 3rem;
-            text-align: center;
-        }
-        
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--gold);
-        }
-        
-        .footer-tagline {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            opacity: 0.8;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin: 2.5rem 0;
-        }
-        
-        .social-links li {
-            margin: 0 1.2rem;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.8rem;
-            transition: color 0.3s, transform 0.3s;
+        .btn {
             display: inline-block;
-        }
-        
-        .social-links a:hover {
-            color: var(--gold);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-        
-        /* Buttons */
-      .btn {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: white;
-  padding: 14px 32px;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: all 0.4s;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem;
-  box-shadow: 0 5px 15px rgba(230, 180, 34, 0.3);
-  text-align: center;
-  margin: 2rem auto; /* Center horizontally */
-  display: block;    /* Make sure it's a block-level element */
-}
-
-         .btn-1 {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--accent-color);
             color: white;
-            padding: 14px 32px;
+            padding: 1rem 2rem;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 6px;
             font-weight: 600;
-            transition: all 0.4s;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            box-shadow: 0 5px 15px rgba(230, 180, 34, 0.3);
-            text-align: center;
+            margin-top: 2rem;
+            transition: background 0.3s ease;
         }
+        
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(230, 180, 34, 0.4);
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            background: #2980b9;
         }
         
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            box-shadow: none;
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-secondary);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 1000;
         }
         
-        .btn-outline:hover {
-            background: white;
-            color: var(--deep-red);
-            border-color: white;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
         }
         
-        .btn-large {
-            padding: 16px 42px;
-            font-size: 1.2rem;
-        }
-        
-        /* Responsive */
+        /* Mobile responsive */
         @media (max-width: 768px) {
-            .logo {
-                font-size: 2.8rem;
-                color: rgb(2, 2, 2)!important;
+            .company-name {
+                font-size: 2.5rem;
             }
             
-            .tagline {
-                font-size: 1.3rem;
+            .section {
+                padding: 60px 15px;
             }
             
-            .nav-container {
-                flex-direction: column;
+            .nav {
+                top: 15px;
+                right: 15px;
             }
             
-            .nav-links {
-                margin-top: 1.5rem;
-            }
-            
-            .nav-links li {
-                margin: 0 1rem;
-            }
-            
-            .hero-content {
-                padding: 3rem 2rem;
-            }
-            
-            .pricing-section {
-                padding: 3rem 2rem;
+            .gallery-grid,
+            .services-grid,
+            .pricing-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
-        header{
-background-image: url(image.png);
-background-size: cover;
-background-repeat: no-repeat;
+        
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Nestor's Lechon</div>
-        <p class="tagline">Slow-roasted to perfection with golden, crispy skin and succulent meat</p>
-        <div class="header-badge">Order Now!</div>
-    </header>
-    
-    <nav>
-        <div class="nav-container">
-            <div class="nav-logo">Nestor's Lechon</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+    <!-- Navigation dots -->
+    <nav class="nav">
+        <div class="nav-dot active" data-section="0"></div>
+        <div class="nav-dot" data-section="1"></div>
+        <div class="nav-dot" data-section="2"></div>
+        <div class="nav-dot" data-section="3"></div>
+        <div class="nav-dot" data-section="4"></div>
     </nav>
     
-    <div class="container">
-        <section id="about" class="section">
-            <div class="hero">
-                <div class="hero-content">
-                    <h2>The Perfect Celebration Centerpiece</h2>
-                    <p>Our lechon is slow-roasted over charcoal for hours, basted with our secret family recipe to achieve that perfect golden crisp skin while keeping the meat incredibly juicy and flavorful. Each pig is carefully selected and prepared to ensure the highest quality for your special occasions.</p>
-                    <p>Whether it's a wedding, birthday, fiesta, or corporate event, our lechon will be the star of your celebration that guests will remember and talk about for years to come.</p>
-                    <a href="#pricing" class="btn">View Pricing</a>
-                </div>
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">↓</div>
+    
+    <!-- Section 1: Hero/About -->
+    <section class="section hero-section" id="section-0">
+        <div class="container">
+            <h1 class="company-name">Nestor's Lechon</h1>
+            <p class="company-tagline">Professional catering services specializing in traditional Filipino roasted pig</p>
+            <div class="hero-content">
+                <p>Nestor's Lechon specializes in traditional Filipino lechon preparation using time-honored cooking methods. Our lechon is slow-roasted over charcoal for optimal flavor and texture, featuring crispy skin and tender, juicy meat.</p>
+                <p>We cater to weddings, corporate events, celebrations, and private gatherings throughout Bacoor City, Cavite and surrounding areas. Each order is prepared with careful attention to quality and food safety standards.</p>
             </div>
-        </section>
-        
-        <section id="gallery" class="section">
-            <h2 class="section-title">Our Lechon Gallery</h2>
-            <div class="gallery">
+        </div>
+    </section>
+    
+    <!-- Section 2: Gallery -->
+    <section class="section gallery-section" id="section-1">
+        <div class="container">
+            <h2 class="section-title">Our Work</h2>
+            <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="image1.jpg" alt="Whole golden brown lechon on display">
-                    <div class="gallery-caption">
-                        <h4>Order Now!</h4>
-                    </div>
                 </div>
-
                 <div class="gallery-item">
                     <img src="image2.jpg" alt="Close-up of crispy lechon skin">
-                    <div class="gallery-caption">
-                        <h4>Order Now!</h4>
-                    </div>
                 </div>
-
                 <div class="gallery-item">
                     <img src="image3.jpg" alt="Lechon being carved">
-                    <div class="gallery-caption">
-                        <h4>Order Now!</h4>
-                    </div> </div>
-           
-
+                </div>
                 <div class="gallery-item">
                     <img src="image4.jpg" alt="Lechon served at a party">
-                    <div class="gallery-caption">
-                        <h4>Order Now!</h4>
-                    </div> </div>
-
-                     <div class="gallery-item">
-                    <img src="image5.jpg" alt="Lechon served at a party">
-                    <div class="gallery-caption">
-                        <h4>Order Now!</h4>
-                    </div> </div>
-
-                     <div class="gallery-item">
-                    <img src="image6.jpg" alt="Lechon served at a party">
-                    <div class="gallery-caption">
-                        <h4>Order Now!</h4>
-                    </div> </div>
-
-                        
+                </div>
+                <div class="gallery-item">
+                    <img src="image5.jpg" alt="Lechon catering setup">
+                </div>
+                <div class="gallery-item">
+                    <img src="image6.jpg" alt="Professional lechon presentation">
                 </div>
             </div>
-            
-            <div class="video-section">
-                <h2>See Our Lechon in Action</h2>
-                <p>Watch how we prepare our famous lechon</p>
-                <div class="video-container">
-                    <iframe src="video-sample.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            
-        </section>
-        
-        <section id="pricing" class="section">
-            <h2 class="section-title">Pricing & Packages</h2>
-            
-            <div class="pricing-section">
-                <div class="per-kilo">₱1,000 per kilogram</div>
-                
-                <h3 style="text-align: center; margin-bottom: 2.5rem;">Whole Lechon Packages</h3>
-                
-                <div class="price-cards">
-                    <div class="price-card">
-                        <h3>Small</h3>
-                        <div class="price">₱10,000</div>
-                    </div>
-                    
-                    <div class="price-card">
-                        <h3>Medium</h3>
-                        <div class="price">₱11,000-₱15,000</div>
-                    </div>
-                    
-                    <div class="price-card">
-                        <h3>Large</h3>
-                        <div class="price">₱16,000-₱20,000</div>
-                    </div>
-                </div>
-                
-                <div class="notice">
-                    <h3>Order Information</h3>
-                    <p><strong>Deposit:</strong> We require a ₱2,000 deposit for whole lechon orders to secure your reservation.</p>
-                    <p><strong>Advance Notice:</strong> Please place your order 3-5 days in advance to ensure availability.</p>
-                
-                </div>
-            </div>
-        </section>
-        
-        <div class="cta-section">
-            <h2>Ready to Order Your Lechon?</h2>
-            <p>Make your event unforgettable with our famous roasted pig</p>
-            <a href="#contact" class="btn-1">Contact Us Now</a>
         </div>
-        
-        <section id="contact" class="section">
-            <h2 class="section-title">Contact Us</h2>
+    </section>
+    
+    <!-- Section 3: Services -->
+    <section class="section services-section" id="section-2">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Whole Lechon Catering</h3>
+                    <p>Complete whole roasted pig service for large events and celebrations. Available in small, medium, and large sizes to accommodate different group sizes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Per Kilogram Orders</h3>
+                    <p>Flexible ordering by weight for smaller gatherings or budget-conscious events. Minimum order requirements apply.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Event Catering</h3>
+                    <p>Professional catering services for weddings, corporate functions, birthdays, and community events with advance booking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 4: Pricing -->
+    <section class="section pricing-section" id="section-3">
+        <div class="container">
+            <h2 class="section-title">Pricing Information</h2>
+            <div class="pricing-highlight">₱1,000 per kilogram</div>
             
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Small Package</h3>
+                    <div class="price">₱10,000</div>
+                    <p>Suitable for intimate gatherings</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Medium Package</h3>
+                    <div class="price">₱11K - ₱15K</div>
+                    <p>Perfect for medium-sized events</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Large Package</h3>
+                    <div class="price">₱16K - ₱20K</div>
+                    <p>Ideal for large celebrations</p>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <h4>Order Requirements</h4>
+                <p><strong>Deposit:</strong> ₱2,000 deposit required for whole lechon orders</p>
+                <p><strong>Advance Notice:</strong> Orders must be placed 3-5 days in advance</p>
+                <p><strong>Service Area:</strong> Bacoor City, Cavite and surrounding areas</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 5: Contact -->
+    <section class="section contact-section" id="section-4">
+        <div class="container">
+            <h2 class="section-title">Contact Information</h2>
             <div class="contact-grid">
                 <div class="contact-card">
-                    <div class="contact-icon">📞</div>
-                    <h3>Phone</h3>
-                  <p>  (046) 417 30 02 </p>
-                  <p> 09171134119  </p>
-                   <p> 09596616129 </p>
-                   <p>09155977895</p>
+                    <h3>Phone Numbers</h3>
+                    <p><strong>Primary:</strong> (046) 417 30 02</p>
+                    <p><strong>Mobile:</strong> 09171134119</p>
+                    <p><strong>Mobile:</strong> 09596616129</p>
+                    <p><strong>Mobile:</strong> 09155977895</p>
                 </div>
-                
                 <div class="contact-card">
-                    <div class="contact-icon">✉️</div>
-                    <h3>Email</h3>
+                    <h3>Email & Hours</h3>
                     <p>shiao_tely20@yahoo.com</p>
+                    <p style="margin-top: 1rem;"><strong>Business Hours:</strong></p>
+                    <p>Sunday: 7:00 AM - 11:00 AM</p>
                 </div>
-                
                 <div class="contact-card">
-                    <div class="contact-icon">📍</div>
                     <h3>Location</h3>
-                    <p>Talaba 4 Bacoor City, Cavite, Bacoor, Philippines</p>
-                    <p>Sunday: 7AM-11AM</p>
-                    
-
+                    <p><strong>Address:</strong></p>
+                    <p>Talaba 4 Bacoor City</p>
+                    <p>Cavite, Philippines</p>
+                    <p style="margin-top: 1rem;">Serving Bacoor and surrounding areas</p>
                 </div>
             </div>
-        </section>
-    </div>
-    
-    <footer>
-        <div class="footer-logo">Nestor's Lechon</div>
-        <p class="footer-tagline">The finest roasted pig for your special occasions</p>
-        
-        <ul class="social-links">
-            <li><a href="#">📱</a></li>
-            <li><a href="#">📘</a></li>
-            <li><a href="#">📸</a></li>
-            <li><a href="#">📹</a></li>
-        </ul>
-        
-        <div class="copyright">
-            <p>© 2023 Nestor's Lechon. All rights reserved. Project R</p>
-            <p>Thank you for your patronage and God bless!</p>
+            <div style="text-align: center;">
+                <a href="tel:+63917134119" class="btn">Call Now to Order</a>
+            </div>
         </div>
-    </footer>
+    </section>
+
+    <script>
+        // Navigation functionality
+        const sections = document.querySelectorAll('.section');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        let currentSection = 0;
+        let isScrolling = false;
+
+        // Update active navigation dot
+        function updateNavigation(index) {
+            navDots.forEach(dot => dot.classList.remove('active'));
+            navDots[index].classList.add('active');
+            currentSection = index;
+            
+            // Hide scroll indicator on last section
+            if (index === sections.length - 1) {
+                scrollIndicator.classList.add('hidden');
+            } else {
+                scrollIndicator.classList.remove('hidden');
+            }
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(index) {
+            if (isScrolling) return;
+            isScrolling = true;
+            
+            sections[index].scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            updateNavigation(index);
+            
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        }
+
+        // Navigation dot click handlers
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                scrollToSection(index);
+            });
+        });
+
+        // Scroll indicator click handler
+        scrollIndicator.addEventListener('click', () => {
+            if (currentSection < sections.length - 1) {
+                scrollToSection(currentSection + 1);
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (isScrolling) return;
+            
+            if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
+                scrollToSection(currentSection + 1);
+            } else if (e.key === 'ArrowUp' && currentSection > 0) {
+                scrollToSection(currentSection - 1);
+            }
+        });
+
+        // Wheel/touch navigation
+        let touchStartY = 0;
+        let lastWheelTime = 0;
+
+        document.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const now = Date.now();
+            
+            if (now - lastWheelTime < 1000 || isScrolling) return;
+            lastWheelTime = now;
+
+            if (e.deltaY > 0 && currentSection < sections.length - 1) {
+                scrollToSection(currentSection + 1);
+            } else if (e.deltaY < 0 && currentSection > 0) {
+                scrollToSection(currentSection - 1);
+            }
+        }, { passive: false });
+
+        // Touch navigation for mobile
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            if (isScrolling) return;
+            
+            const touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0 && currentSection < sections.length - 1) {
+                    scrollToSection(currentSection + 1);
+                } else if (diff < 0 && currentSection > 0) {
+                    scrollToSection(currentSection - 1);
+                }
+            }
+        });
+
+        // Gallery image click to enlarge
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        galleryItems.forEach(img => {
+            img.addEventListener('click', () => {
+                // Create modal overlay
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 2000;
+                    cursor: pointer;
+                `;
+                
+                const modalImg = document.createElement('img');
+                modalImg.src = img.src;
+                modalImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border-radius: 8px;
+                `;
+                
+                modal.appendChild(modalImg);
+                document.body.appendChild(modal);
+                
+                modal.addEventListener('click', () => {
+                    document.body.removeChild(modal);
+                });
+            });
+        });
+
+        // Intersection Observer for auto-navigation updates
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '-20% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !isScrolling) {
+                    const index = Array.from(sections).indexOf(entry.target);
+                    updateNavigation(index);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Initialize
+        updateNavigation(0);
+    </script>
 </body>
 </html>
